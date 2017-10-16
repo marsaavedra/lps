@@ -40,8 +40,9 @@ var authRoute = require('./app/routes/auth.js')(app,passport);
 require('./app/config/passport/passport.js')(passport, models.user);
 
 //static file
-app.use(express.static(__dirname + '/views'));
 
+
+app.use(express.static("public"));
 //For Handlebars
 app.set('views', './app/views')
 app.engine('hbs', exphbs({
