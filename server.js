@@ -53,7 +53,7 @@ app.get('/', function(req, res) {
 });
  
  
-app.listen(5000, function(err) {
+app.listen(PORT, function(err) {
  
     if (!err)
         console.log("Site is live");
