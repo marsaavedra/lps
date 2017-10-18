@@ -18,6 +18,10 @@ module.exports = function(app, passport) {
 
     app.get('/help',isLoggedIn, authController.help);
 
+    app.get('/pig',isLoggedIn, authController.pig);
+
+    app.get('/faqs',isLoggedIn, authController.faqs);
+
     app.get('/logout',authController.logout);
 
     app.post('/signin', passport.authenticate('local-signin', {

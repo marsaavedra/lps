@@ -24,6 +24,18 @@ exports.help = function(req, res) {
  
 }
 
+exports.pig = function(req, res) {
+ 
+    res.render('pig');
+ 
+}
+
+exports.faqs = function(req, res) {
+ 
+    res.render('faqs');
+ 
+}
+
 exports.logout = function(req, res) {
  
     req.session.destroy(function(err) {
