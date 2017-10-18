@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Luminar</title>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
+  </head>
+
+    <body>
+        <header> 
+
+           <nav class="navbar navbar-default navbar-inverse">
+            <div class="container-fluid">
+              
+              <div class="navbar-header">
+             
+               
+              <li><a href="/dashboard"><img src="./images/bars.png" id="logoImg"></a></li>
+             
+             </div>
+              
+                
+                <form class="navbar-form navbar-right">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                  </div>
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/">Log Out</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#">SDK</a></li>
+                  <li><a href="#">Firmware</a></li>
+                  <li><a href="#">Product Info Guide</a></li>
+                  <li><a href="#">Help Portal</a></li>
+                  <li><a href="#">Sample Data</a></li>
+                  <li><a href="#"></a>FAQs</li>
+
+                </ul>
+              
+            </div>
+          </nav> 
+      </header>
+          <div class="wrapper">
+            <div id="welcomeSign">
+              <h1> Help Portal </h1>
+            </div>
+          
+            <div class="list-group main-section1 marginSep1 addBorder">
+              <!-- container for help submission form> -->
+              <h2 class="text-center">Contact Us</h2>
+                <br>
+                  <div class="row">
+                    <form role="form" id="contact-form" class="contact-form">
+                      <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                              <input type="text" class="form-control" name="Name" autocomplete="off" id="Name" placeholder="Name">
+                        </div>
+                      </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                              <input type="email" class="form-control" name="email" autocomplete="off" id="email" placeholder="E-mail">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                              <textarea class="form-control textarea" rows="3" name="Message" id="Message" placeholder="Message"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <button type="submit" class="btn main-btn pull-right">Send a message</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+            </div>
+            <!-- <end of help submission form> -->
+
+             <!-- beginning of "have you tried documentation?" div> --> 
+            <div class="list-group main-section2 marginSep2 addBorder" >
+              <!-- first  -->
+              <div class="card" style="width: 32rem;">
+                <div class="card-block">
+                  <h2 class="card-title text-center">Have you tried documentation?</h2>
+    
+                </div>
+              </div>
+              <br>
+              <!-- second  -->
+              <div class="card" style="width: 32rem;">
+                <div class="card-block">
+                  <h4 class="card-title text-center">FAQs</h4>
+                  <p class="card-text">You may find your answer in the frequently asked questions page.</p>
+                  <a href="faqs.html" class="btn btn-primary">FAQs</a>
+                </div>
+              </div>
+              <!-- third -->
+              <div class="card" style="width: 32rem;">
+                  <div class="card-block">
+                    <h3 class="card-title text-center">Search</h3>
+                    <p class="card-text">Search through the our comprehensive documentation.</p>
+                    <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Search</button>
+                  </div>
+                </div>
+
+            </div>
+            <!-- end of "have you tried documentation div?" -->
+
+        </div>
+
+
+      </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/jquery.validate.js"></script>
+</html>
