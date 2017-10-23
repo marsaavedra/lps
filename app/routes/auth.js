@@ -22,6 +22,9 @@ module.exports = function(app, passport) {
 
     app.get('/faqs',isLoggedIn, authController.faqs);
 
+
+    app.post('/submission',isLoggedIn, authController.submission);
+
     app.get('/logout',authController.logout);
 
     app.post('/signin', passport.authenticate('local-signin', {
