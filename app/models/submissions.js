@@ -1,5 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
   var Submissions = sequelize.define("Submissions", {
+
+    id: { 
+      autoIncrement: true, 
+      primaryKey: true, 
+      type: DataTypes.INTEGER},
+
     Name: {
       type: DataTypes.STRING,
       allowNull: false,

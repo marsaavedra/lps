@@ -1,5 +1,6 @@
 var exports = module.exports = {}
 var models = require("../models");
+var nodemailer = require('nodemailer');
 
  
 exports.signup = function(req, res) {
@@ -51,24 +52,68 @@ exports.submission = function(req, res, done) {
     };
 
     models.Submissions.create(data).then(function(newSubmission, created) {
- 
-                        if (!newSubmission) {
- 
-                            return done(null, false);
- 
-                        }
- 
-                        if (newSubmission) {
- 
-                            return done(null, newSubmission);
- 
-                        }
- 
-                    });
 
-    res.render('submission');
+        let transporter = nodemailer.createTransport({
+          service: 'gmail',
+          secure: false,
+          port: 25,
+          auth: {
+            user: 'maria.saavedra@luminartech.com',
+            pass: 'Hayden25!'
+          },
+          tls: {
+            rejectUnauthorized: false
+          }
+        });
+      //Mail options
+      let HelperOptions = {
+          from: req.body.Name + ' &lt;' + req.body.Email + '&gt;', //grab form data from the request body object
+          to: 'maria.saavedra@luminartech.com',
+          subject: 'Help Submission Form',
+          text: req.body.Message+"\n" + "From:" +req.body.Name +"\n"+ "Email:" +" "+ req.body.Email +"\n"+ "Ticket: " + newSubmission.id
+      };
+
+      // console.log("ticket", req.user.id.submissions.id);
+
+      transporter.sendMail(HelperOptions, (error, info) => {
+        if (error) {
+          return console.log(error);
+        }
+        console.log("The message was sent!");
+        console.log(info);
+      });
+
+
+      res.render('submission',{data: newSubmission});
+
+        // if (!newSubmission) {
+
+        //     return done(null, false);
+
+        // }
+
+        // if (newSubmission) {
+
+        //     return done(null, newSubmission);
+
+        // }
+
+    });
+
+    
  
 }
+
+exports.getAllSubmissions = function(req,res,done){
+    //search through submissions and load up where user.id = req.user.id
+    db.Submissions.findAll({
+        where: {userId: req.user.id }
+    }).then(function(data){
+        console.log("data", data);
+        res.send(data);
+    }) 
+}
+
 exports.logout = function(req, res) {
  
     req.session.destroy(function(err) {

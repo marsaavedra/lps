@@ -22,6 +22,7 @@ module.exports = function(app, passport) {
 
     app.get('/faqs',isLoggedIn, authController.faqs);
 
+    app.get('/submission', isLoggedIn, authController.getAllSubmissions); // put the new functinon here );
 
     app.post('/submission',isLoggedIn, authController.submission);
 
