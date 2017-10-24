@@ -58,8 +58,8 @@ exports.submission = function(req, res, done) {
           secure: false,
           port: 25,
           auth: {
-            user: 'maria.saavedra@luminartech.com',
-            pass: 'Hayden25!'
+            user: 'mytesting1991@gmail.com',
+            pass: 'Dragon1991'
           },
           tls: {
             rejectUnauthorized: false
@@ -68,7 +68,7 @@ exports.submission = function(req, res, done) {
       //Mail options
       let HelperOptions = {
           from: req.body.Name + ' &lt;' + req.body.Email + '&gt;', //grab form data from the request body object
-          to: 'maria.saavedra@luminartech.com',
+          to: 'mytesting1991@gmail.com',
           subject: 'Help Submission Form',
           text: req.body.Message+"\n" + "From:" +req.body.Name +"\n"+ "Email:" +" "+ req.body.Email +"\n"+ "Ticket: " + newSubmission.id
       };
@@ -86,17 +86,6 @@ exports.submission = function(req, res, done) {
 
       res.render('submission',{data: newSubmission});
 
-        // if (!newSubmission) {
-
-        //     return done(null, false);
-
-        // }
-
-        // if (newSubmission) {
-
-        //     return done(null, newSubmission);
-
-        // }
 
     });
 
