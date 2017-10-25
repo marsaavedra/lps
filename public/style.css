@@ -40,7 +40,41 @@ body{
   margin-right: auto;
 }
 
+#thankYou {
+  font-size: 50px;
+}
 
+h3 {
+  font-size: 20px;
+}
+
+#dashbutton {
+  width: 50px;
+  height: auto;
+}
+
+/*.checkmark {
+  width: 50px;
+  height: auto;
+}*/
+
+.myText {
+  display: block;
+}
+
+.iconContainer {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  display: inline-block;
+  margin: 60px;
+  padding: 10px;
+  text-align: center;
+}
+
+.icon {
+  vertical-align: middle;
+    font-size: 40px;
+}
 
 #welcomeSign {
   max-width: 300px;
