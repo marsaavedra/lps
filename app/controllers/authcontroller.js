@@ -4,6 +4,7 @@ var models = require("../models");
 var nodemailer = require('nodemailer');
 
  //rendering hbs files
+ //validations
 exports.signup = function(req, res) {
  
     res.render('signup');
