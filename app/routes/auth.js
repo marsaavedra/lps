@@ -22,6 +22,12 @@ module.exports = function(app, passport) {
 
     app.get('/faqs',isLoggedIn, authController.faqs);
 
+    app.get('/sdk',isLoggedIn, authController.sdk);
+
+    app.get('/firmware',isLoggedIn, authController.firmware);
+
+    app.get('/sampledata',isLoggedIn, authController.sampledata);
+
     app.get('/submission', isLoggedIn, authController.getAllSubmissions); // put the new functinon here );
 
     app.post('/submission',isLoggedIn, authController.submission);

@@ -1,5 +1,6 @@
 var exports = module.exports = {}
 var models = require("../models");
+//npm package that allows our stack to send an email notification
 var nodemailer = require('nodemailer');
 
  
@@ -39,11 +40,29 @@ exports.faqs = function(req, res) {
  
 }
 
+exports.sdk = function(req, res) {
+ 
+    res.render('sdk');
+ 
+}
+
+exports.firmware = function(req, res) {
+ 
+    res.render('firmware');
+ 
+}
+
+exports.sampledata = function(req, res) {
+ 
+    res.render('sampledata');
+ 
+}
+
 exports.submission = function(req, res, done) {
 
 
  	console.log("console ID", req.user.id);
-    // res.render('bmission');
+    //data object with user parameters
     var data = {
         Name : req.body.Name,
         Email : req.body.Email,
@@ -52,7 +71,7 @@ exports.submission = function(req, res, done) {
     };
 
     models.Submissions.create(data).then(function(newSubmission, created) {
-
+        // from whom the email is coming from
         let transporter = nodemailer.createTransport({
           service: 'gmail',
           secure: false,
@@ -65,7 +84,7 @@ exports.submission = function(req, res, done) {
             rejectUnauthorized: false
           }
         });
-      //Mail options
+      //Body of email message
       let HelperOptions = {
           from: req.body.Name + ' &lt;' + req.body.Email + '&gt;', //grab form data from the request body object
           to: 'mytesting1991@gmail.com',
@@ -73,7 +92,7 @@ exports.submission = function(req, res, done) {
           text: req.body.Message+"\n" + "From:" +req.body.Name +"\n"+ "Email:" +" "+ req.body.Email +"\n"+ "Ticket: " + newSubmission.id
       };
 
-      // console.log("ticket", req.user.id.submissions.id);
+      //sends mail
 
       transporter.sendMail(HelperOptions, (error, info) => {
         if (error) {
@@ -83,7 +102,7 @@ exports.submission = function(req, res, done) {
         console.log(info);
       });
 
-
+      //rendering our submsission file to contain our new data submission entered in our form and stored in our database
       res.render('submission',{data: newSubmission});
 
 
@@ -94,7 +113,7 @@ exports.submission = function(req, res, done) {
 }
 
 exports.getAllSubmissions = function(req,res,done){
-    //search through submissions and load up where user.id = req.user.id
+    //search through submissions and load up where user.id = req.user.id which is our foreign key that connects to our child table or our submissions table. 
     db.Submissions.findAll({
         where: {userId: req.user.id }
     }).then(function(data){
