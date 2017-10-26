@@ -3,7 +3,7 @@ var models = require("../models");
 //npm package that allows our stack to send an email notification
 var nodemailer = require('nodemailer');
 
- 
+ //rendering hbs files
 exports.signup = function(req, res) {
  
     res.render('signup');
