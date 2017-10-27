@@ -32,6 +32,9 @@ body{
   }
 }
 
+#dash {
+  font-size: 60px;
+}
 .center {
   width: 100%;
   height: auto;
